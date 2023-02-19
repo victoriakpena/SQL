@@ -1,0 +1,34 @@
+-- Create an accessory store database.
+
+CREATE TABLE accessory (id INTEGER, name TEXT, price INTEGER, stock INTEGER, color TEXT);
+
+INSERT INTO accessory VALUES(1, "snakeskin purse", 20, 3, "brown");
+INSERT INTO accessory VALUES(2, "bucket bag", 30, 1, "black");
+INSERT INTO accessory VALUES(3, "tote bag", 10, 6, "pink");
+INSERT INTO accessory VALUES(4, "crossbody purse", 16, 9, "navy");
+INSERT INTO accessory VALUES(5, "shoulder bag", 24, 6, "white");
+INSERT INTO accessory VALUES(6, "small sunglasses", 10, 5, "tortoise");
+INSERT INTO accessory VALUES(7, "medium sunglassess", 10, 3, "black");
+INSERT INTO accessory VALUES(8, "oversized sunglasses", 10, 7, "brown");
+INSERT INTO accessory VALUES(9, "cat eye sunglasses", 10, 9, "red");
+INSERT INTO accessory VALUES(10, "aviator sunglasses", 10, 12, "gold");
+INSERT INTO accessory VALUES(11, "big hat", 17, 3, "multicolored");
+INSERT INTO accessory VALUES(12, "medium hat", 14, 6, "multicolored");
+INSERT INTO accessory VALUES(13, "beanie hat", 13, 7, "multicolored");
+INSERT INTO accessory VALUES(14, "sun hat", 28, 7, "tan");
+INSERT INTO accessory VALUES(15, "visor", 5, 2, "hot pink");
+
+-- Display the database ordered by price.
+Select * from accessory ORDER BY price;
+
+-- What is the avg price of all accessories?
+SELECT AVG(price) FROM accessory;
+
+-- How much stock is currently available?
+SELECT SUM(stock) FROM accessory;
+
+-- Which items are available in multicolor?
+SELECT * from accessory where color = "multicolored"; 
+
+-- What is the avg price of multicolored items?
+Select AVG(price) From accessory Where color = "multicolored";
