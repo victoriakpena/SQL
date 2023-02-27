@@ -80,3 +80,17 @@ Select track_name, speechiness, danceability
 From BIT_DB.Spotifydata
 Order by danceability asc
 Limit 1;
+
+-- Calculate the average popularity for the artists.
+-- For every artist with an average popularity of 90 or above, show their name, avg popularity, & label them as a “Top Star."
+With temptable As (
+Select sd.artist_name, AVG(sd.popularity) as average_popularity
+From Spotifydata as sd
+Group by sd.artist_name)
+
+Select artist_name, average_popularity,
+Case When average_popularity >= 90 then 'Top Star'
+Else ''
+End as The_Top_Stars
+From temptable
+Order by average_popularity desc;
